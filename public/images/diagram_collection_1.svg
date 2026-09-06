@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="100%" height="100%" style="background:#ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <!-- Arrowhead markers -->
+    <marker id="arrow-extends" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#b91c1c" />
+    </marker>
+    <marker id="arrow-implements" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155" />
+    </marker>
+
+    <!-- Drop shadows -->
+    <filter id="box-shadow" x="-8%" y="-8%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.12" />
+    </filter>
+
+    <!-- Node styles -->
+    <style>
+      .interface-box { fill: #059669; stroke: #047857; stroke-width: 1.5; rx: 8px; filter: url(#box-shadow); }
+      .class-box { fill: #2563eb; stroke: #1d4ed8; stroke-width: 1.5; rx: 8px; filter: url(#box-shadow); }
+      .node-name { font-size: 16px; font-weight: 700; fill: #ffffff; text-anchor: middle; }
+      .node-tag { font-size: 11.5px; font-weight: 500; fill: rgba(255,255,255,0.85); text-anchor: middle; }
+      .line-extends { stroke: #b91c1c; stroke-width: 2.2; fill: none; }
+      .line-implements { stroke: #334155; stroke-width: 2; stroke-dasharray: 6,4; fill: none; }
+    </style>
+  </defs>
+
+  <!-- ================= LEGEND (TOP RIGHT) ================= -->
+  <g transform="translate(860, 30)">
+    <rect x="0" y="0" width="310" height="50" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
+    <!-- Extends -->
+    <line x1="25" y1="25" x2="65" y2="25" class="line-extends" marker-end="url(#arrow-extends)" />
+    <text x="75" y="29" font-size="13" font-weight="600" fill="#b91c1c">extends</text>
+    <!-- Implements -->
+    <line x1="160" y1="25" x2="200" y2="25" class="line-implements" marker-end="url(#arrow-implements)" />
+    <text x="210" y="29" font-size="13" font-weight="600" fill="#334155">implements</text>
+  </g>
+
+  <!-- ================= ROOT: ITERABLE & COLLECTION ================= -->
+  <!-- Iterable -->
+  <rect x="520" y="30" width="160" height="52" class="interface-box" />
+  <text x="600" y="53" class="node-name">Iterable</text>
+  <text x="600" y="70" class="node-tag">&lt;interface&gt;</text>
+
+  <!-- Extends arrow: Iterable <- Collection -->
+  <line x1="600" y1="120" x2="600" y2="90" class="line-extends" marker-end="url(#arrow-extends)" />
+
+  <!-- Collection -->
+  <rect x="510" y="120" width="180" height="56" class="interface-box" />
+  <text x="600" y="145" class="node-name">Collection</text>
+  <text x="600" y="163" class="node-tag">&lt;interface&gt;</text>
+
+  <!-- Distribution line: Collection to List, Queue, Set -->
+  <path d="M 600 176 L 600 195" class="line-extends" />
+  <path d="M 230 195 L 980 195" class="line-extends" />
+  <line x1="230" y1="195" x2="230" y2="230" class="line-extends" marker-end="url(#arrow-extends)" />
+  <line x1="600" y1="195" x2="600" y2="230" class="line-extends" marker-end="url(#arrow-extends)" />
+  <line x1="980" y1="195" x2="980" y2="230" class="line-extends" marker-end="url(#arrow-extends)" />
+
+  <!-- ================= BRANCH 1: LIST ================= -->
+  <rect x="150" y="235" width="160" height="52" class="interface-box" />
+  <text x="230" y="258" class="node-name">List</text>
+  <text x="230" y="275" class="node-tag">&lt;interface&gt;</text>
+
+  <!-- Implements arrows to List -->
+  <line x1="120" y1="340" x2="180" y2="295" class="line-implements" marker-end="url(#arrow-implements)" />
+  <line x1="240" y1="340" x2="235" y2="295" class="line-implements" marker-end="url(#arrow-implements)" />
+  <line x1="360" y1="340" x2="290" y2="295" class="line-implements" marker-end="url(#arrow-implements)" />
+
+  <!-- ArrayList -->
+  <rect x="50" y="340" width="140" height="52" class="class-box" />
+  <text x="120" y="363" class="node-name">ArrayList</text>
+  <text x="120" y="380" class="node-tag">&lt;class&gt;</text>
+
+  <!-- LinkedList -->
+  <rect x="180" y="440" width="140" height="52" class="class-box" />
+  <text x="250" y="463" class="node-name">LinkedList</text>
+  <text x="250" y="480" class="node-tag">&lt;class&gt;</text>
+  <line x1="240" y1="440" x2="240" y2="295" class="line-implements" marker-end="url(#arrow-implements)" />
+
+  <!-- Vector -->
+  <rect x="300" y="340" width="130" height="52" class="class-box" />
+  <text x="365" y="363" class="node-name">Vector</text>
+  <text x="365" y="380" class="node-tag">&lt;class&gt;</text>
+
+  <!-- Stack extends Vector -->
+  <rect x="300" y="450" width="130" height="52" class="class-box" />
+  <text x="365" y="473" class="node-name">Stack</text>
+  <text x="365" y="490" class="node-tag">&lt;class&gt;</text>
+  <line x1="365" y1="450" x2="365" y2="400" class="line-extends" marker-end="url(#arrow-extends)" />
+
+  <!-- ================= BRANCH 2: QUEUE ================= -->
+  <rect x="520" y="235" width="160" height="52" class="interface-box" />
+  <text x="600" y="258" class="node-name">Queue</text>
+  <text x="600" y="275" class="node-tag">&lt;interface&gt;</text>
+
+  <!-- Deque extends Queue -->
+  <line x1="535" y1="340" x2="570" y2="295" class="line-extends" marker-end="url(#arrow-extends)" />
+  <rect x="450" y="340" width="150" height="52" class="interface-box" />
+  <text x="525" y="363" class="node-name">Deque</text>
+  <text x="525" y="380" class="node-tag">&lt;interface&gt;</text>
+
+  <!-- ArrayDeque implements Deque -->
+  <line x1="525" y1="440" x2="525" y2="400" class="line-implements" marker-end="url(#arrow-implements)" />
+  <rect x="450" y="440" width="150" height="52" class="class-box" />
+  <text x="525" y="463" class="node-name">ArrayDeque</text>
+  <text x="525" y="480" class="node-tag">&lt;class&gt;</text>
+
+  <!-- LinkedList implements Deque / Queue -->
+  <rect x="620" y="340" width="140" height="52" class="class-box" />
+  <text x="690" y="363" class="node-name">LinkedList</text>
+  <text x="690" y="380" class="node-tag">&lt;class&gt;</text>
+  <line x1="660" y1="340" x2="630" y2="295" class="line-implements" marker-end="url(#arrow-implements)" />
+
+  <!-- PriorityQueue implements Queue -->
+  <rect x="610" y="440" width="160" height="52" class="class-box" />
+  <text x="690" y="463" class="node-name">PriorityQueue</text>
+  <text x="690" y="480" class="node-tag">&lt;class&gt;</text>
+  <line x1="690" y1="440" x2="690" y2="400" class="line-implements" marker-end="url(#arrow-implements)" />
+
+  <!-- ================= BRANCH 3: SET ================= -->
+  <rect x="900" y="235" width="160" height="52" class="interface-box" />
+  <text x="980" y="258" class="node-name">Set</text>
+  <text x="980" y="275" class="node-tag">&lt;interface&gt;</text>
+
+  <!-- HashSet implements Set -->
+  <line x1="880" y1="340" x2="940" y2="295" class="line-implements" marker-end="url(#arrow-implements)" />
+  <rect x="810" y="340" width="140" height="52" class="class-box" />
+  <text x="880" y="363" class="node-name">HashSet</text>
+  <text x="880" y="380" class="node-tag">&lt;class&gt;</text>
+
+  <!-- LinkedHashSet extends HashSet -->
+  <line x1="880" y1="440" x2="880" y2="400" class="line-extends" marker-end="url(#arrow-extends)" />
+  <rect x="800" y="440" width="160" height="52" class="class-box" />
+  <text x="880" y="463" class="node-name">LinkedHashSet</text>
+  <text x="880" y="480" class="node-tag">&lt;class&gt;</text>
+
+  <!-- SortedSet extends Set -->
+  <line x1="1050" y1="340" x2="1010" y2="295" class="line-extends" marker-end="url(#arrow-extends)" />
+  <rect x="980" y="340" width="150" height="52" class="interface-box" />
+  <text x="1055" y="363" class="node-name">SortedSet</text>
+  <text x="1055" y="380" class="node-tag">&lt;interface&gt;</text>
+
+  <!-- NavigableSet extends SortedSet -->
+  <line x1="1055" y1="440" x2="1055" y2="400" class="line-extends" marker-end="url(#arrow-extends)" />
+  <rect x="970" y="440" width="170" height="52" class="interface-box" />
+  <text x="1055" y="463" class="node-name">NavigableSet</text>
+  <text x="1055" y="480" class="node-tag">&lt;interface&gt;</text>
+
+  <!-- TreeSet implements NavigableSet -->
+  <line x1="1055" y1="540" x2="1055" y2="500" class="line-implements" marker-end="url(#arrow-implements)" />
+  <rect x="985" y="540" width="140" height="52" class="class-box" />
+  <text x="1055" y="563" class="node-name">TreeSet</text>
+  <text x="1055" y="580" class="node-tag">&lt;class&gt;</text>
+</svg>

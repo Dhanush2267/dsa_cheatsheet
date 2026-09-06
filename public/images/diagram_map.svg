@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" width="100%" height="100%" style="background:#ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <marker id="arrow-extends" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#b91c1c" />
+    </marker>
+    <marker id="arrow-implements" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155" />
+    </marker>
+
+    <filter id="box-shadow" x="-8%" y="-8%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.12" />
+    </filter>
+
+    <style>
+      .interface-box { fill: #059669; stroke: #047857; stroke-width: 1.5; rx: 8px; filter: url(#box-shadow); }
+      .class-box { fill: #2563eb; stroke: #1d4ed8; stroke-width: 1.5; rx: 8px; filter: url(#box-shadow); }
+      .node-name { font-size: 17px; font-weight: 700; fill: #ffffff; text-anchor: middle; }
+      .node-tag { font-size: 12px; font-weight: 500; fill: rgba(255,255,255,0.85); text-anchor: middle; }
+      .line-extends { stroke: #b91c1c; stroke-width: 2.2; fill: none; }
+      .line-implements { stroke: #334155; stroke-width: 2; stroke-dasharray: 6,4; fill: none; }
+    </style>
+  </defs>
+
+  <!-- ================= ROOT: MAP ================= -->
+  <rect x="410" y="40" width="180" height="56" class="interface-box" />
+  <text x="500" y="65" class="node-name">Map</text>
+  <text x="500" y="83" class="node-tag">&lt;interface&gt;</text>
+
+  <!-- ================= HASHTABLE (LEFT) ================= -->
+  <line x1="230" y1="180" x2="230" y2="70" class="line-implements" />
+  <line x1="230" y1="70" x2="400" y2="70" class="line-implements" marker-end="url(#arrow-implements)" />
+
+  <rect x="150" y="180" width="160" height="56" class="class-box" />
+  <text x="230" y="205" class="node-name">HashTable</text>
+  <text x="230" y="223" class="node-tag">&lt;class&gt;</text>
+
+  <!-- ================= HASHMAP & LINKEDHASHMAP (CENTER) ================= -->
+  <!-- HashMap implements Map -->
+  <line x1="500" y1="180" x2="500" y2="105" class="line-implements" marker-end="url(#arrow-implements)" />
+
+  <rect x="420" y="180" width="160" height="56" class="class-box" />
+  <text x="500" y="205" class="node-name">HashMap</text>
+  <text x="500" y="223" class="node-tag">&lt;class&gt;</text>
+
+  <!-- LinkedHashMap extends HashMap -->
+  <line x1="500" y1="310" x2="500" y2="245" class="line-extends" marker-end="url(#arrow-extends)" />
+
+  <rect x="410" y="310" width="180" height="56" class="class-box" />
+  <text x="500" y="335" class="node-name">LinkedHashMap</text>
+  <text x="500" y="353" class="node-tag">&lt;class&gt;</text>
+
+  <!-- ================= SORTEDMAP & NAVIGABLEMAP & TREEMAP (RIGHT) ================= -->
+  <!-- SortedMap extends Map -->
+  <line x1="770" y1="180" x2="770" y2="70" class="line-extends" />
+  <line x1="770" y1="70" x2="600" y2="70" class="line-extends" marker-end="url(#arrow-extends)" />
+
+  <rect x="685" y="180" width="170" height="56" class="interface-box" />
+  <text x="770" y="205" class="node-name">SortedMap</text>
+  <text x="770" y="223" class="node-tag">&lt;interface&gt;</text>
+
+  <!-- NavigableMap extends SortedMap -->
+  <line x1="770" y1="310" x2="770" y2="245" class="line-extends" marker-end="url(#arrow-extends)" />
+
+  <rect x="675" y="310" width="190" height="56" class="interface-box" />
+  <text x="770" y="335" class="node-name">NavigableMap</text>
+  <text x="770" y="353" class="node-tag">&lt;interface&gt;</text>
+
+  <!-- TreeMap implements NavigableMap -->
+  <line x1="770" y1="440" x2="770" y2="375" class="line-implements" marker-end="url(#arrow-implements)" />
+
+  <rect x="690" y="440" width="160" height="56" class="class-box" />
+  <text x="770" y="465" class="node-name">TreeMap</text>
+  <text x="770" y="483" class="node-tag">&lt;class&gt;</text>
+
+  <!-- ================= LEGEND (BOTTOM LEFT) ================= -->
+  <g transform="translate(150, 520)">
+    <rect x="0" y="0" width="310" height="54" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
+    <line x1="25" y1="27" x2="65" y2="27" class="line-extends" marker-end="url(#arrow-extends)" />
+    <text x="75" y="31" font-size="13.5" font-weight="600" fill="#b91c1c">extends</text>
+    <line x1="160" y1="27" x2="200" y2="27" class="line-implements" marker-end="url(#arrow-implements)" />
+    <text x="210" y="31" font-size="13.5" font-weight="600" fill="#334155">implements</text>
+  </g>
+</svg>
